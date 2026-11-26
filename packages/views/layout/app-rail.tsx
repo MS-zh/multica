@@ -16,6 +16,7 @@ import {
 } from "@multica/core/paths";
 import { TooltipHint } from "@multica/ui/components/common/tooltip-hint";
 import { CappedNumberFlow } from "@multica/ui/components/ui/number-flow";
+import { Separator } from "@multica/ui/components/ui/separator";
 import { cn } from "@multica/ui/lib/utils";
 import { useAppForeground } from "../common/use-app-foreground";
 import { useT } from "../i18n";
@@ -223,10 +224,13 @@ export function AppRail({
       {topSlot}
       <RailWorkspaces />
       {globalActions ? (
-        <div className="my-2 flex flex-col items-center gap-1">
-          <NewIssueButton className={RAIL_ICON_BUTTON_CLASS} tooltipSide="right" />
-          <SearchButton className={RAIL_ICON_BUTTON_CLASS} tooltipSide="right" />
-        </div>
+        <>
+          <div className="mt-2 flex flex-col items-center gap-1">
+            <NewIssueButton className={RAIL_ICON_BUTTON_CLASS} tooltipSide="right" />
+            <SearchButton className={RAIL_ICON_BUTTON_CLASS} tooltipSide="right" />
+          </div>
+          <Separator className="my-3 bg-sidebar-border data-horizontal:w-8" />
+        </>
       ) : (
         <div className="h-2 shrink-0" />
       )}

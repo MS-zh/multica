@@ -118,6 +118,16 @@ describe("AppRail global actions", () => {
     expect(screen.queryByRole("button", { name: /^new issue$/i })).toBeNull();
     expect(screen.queryByRole("button", { name: "Search..." })).toBeNull();
   });
+
+  it("separates the space nav from the global actions", () => {
+    renderRail();
+    expect(document.querySelector('[data-slot="separator"]')).not.toBeNull();
+  });
+
+  it("keeps the rail undivided when the desktop title bar owns the actions", () => {
+    renderRail(undefined, <AppRail globalActions={false} />);
+    expect(document.querySelector('[data-slot="separator"]')).toBeNull();
+  });
 });
 
 describe("AppRail spaces", () => {
